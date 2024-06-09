@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+import os
+
 from datetime import datetime, timedelta
 from typing import Optional
 from jose import JWTError, jwt
@@ -11,8 +14,10 @@ from schemas import Token, TokenData
 from utility import oauth2_scheme 
 from database import get_db
 
+load_dotenv()
 
-SECRET_KEY = 'ed352a21229a129bcfcb7bca705ccdb080527c06a1a614fb86989137718b5f61'
+SECRET_KEY = os.getenv("SECRET_KEY")
+print(type(SECRET_KEY))
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_DAYS = 60
 REFRESH_TOKEN_EXPIRE_DAYS = 2
