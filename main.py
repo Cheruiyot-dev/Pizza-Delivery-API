@@ -9,8 +9,8 @@ app = FastAPI(
     title="Pizza delivery app",
     description="A REST API for pizza delivery service",
     version="v1",
-    docs_url="/docs",
-    root_path="/docs"
+    docs_url="/docs"
+    
 )
 
 app.include_router(auth_router)
